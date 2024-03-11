@@ -1,0 +1,17 @@
+<div class="web-snap-card">
+  <h2>
+    {{title}}
+    <span>Mis en ligne le : {{createdDate}}</span>
+  </h2>
+
+  <img [src]="imageUrl" [alt]="title" />
+
+  <p>{{description}}</p>
+
+  <button 
+    class="like-cta"
+    (click)="onAddLike()"
+  >
+    👍 {{likes}}
+  </button>
+</div>
