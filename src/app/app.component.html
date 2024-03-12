@@ -1,3 +1,6 @@
-<app-web-snap [webSnap]="myWebSnap"></app-web-snap>
-{{debug()}}
+<main class="main-content">
+  @for (webSnapElement of webSnaps; track idx; let idx = $index){
+    <app-web-snap [webSnap]="webSnapElement"></app-web-snap>
+  }
+</main>
 <router-outlet></router-outlet>

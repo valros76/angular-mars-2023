@@ -1,10 +1,46 @@
 .web-snap-card {
-  width: 35dvw;
+  width: min(45dvw, 50dvw);
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+  box-shadow:
+    0 0 3px 0 #fff,
+    0 0 6px 0 #6f6c39;
+  border-radius: 0.25rem;
+  padding: .5em 1em;
+  margin: 1em .5em;
+}
+
+.web-snap-card-liked{
+  background-color:#6f6c391a;
+}
+
+.web-snap-title,
+p:has(>.created-date) {
+  margin-block: 0 .25rem;
+  padding-inline: .5rem;
+  padding-block: .25rem;
+}
+
+.created-date {
+  font-size: .785rem;
+  font-weight: 600;
+  font-family: monospace;
+  margin: 0;
 }
 
 img {
   width: 100%;
   height: auto;
+}
+
+p:not(:has(>.created-date)) {
+  padding-block: .25rem;
+  padding-inline: 1rem;
 }
 
 .like-cta {
@@ -19,6 +55,7 @@ img {
   border-radius: 0.25rem;
   cursor: pointer;
   padding: 0.25em 0.5em;
+  margin-inline: 1rem;
   transition: outline .125s ease-out, background-color .125s ease-out, color .125s ease-out;
 }
 
@@ -43,6 +80,7 @@ img {
   padding: 0.25em 0.5em;
   background-color: #97900f;
   color: #efe861;
+  margin-inline: 1rem;
   outline: unset;
   transition: outline .125s ease-out, background-color .125s ease-out, color .125s ease-out;
 }

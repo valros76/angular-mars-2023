@@ -1,12 +1,23 @@
-<div class="web-snap-card">
-  <h2>
-    {{ webSnap.title }}
-    <span>Mis en ligne le : {{ webSnap.createdDate }}</span>
+<div class="web-snap-card"
+  [ngClass]="{'web-snap-card-liked': webSnap.isLiked}"
+>
+  <h2 class="web-snap-title">
+    {{ webSnap.title | uppercase }}
   </h2>
+
+  <p><span class="created-date">Mis en ligne le : {{ webSnap.createdDate | date:"dd-MM-YYYY à HH:mm:ss" }}</span></p>
 
   <img [src]="webSnap.imageUrl" [alt]="webSnap.title" />
 
   <p>{{ webSnap.description }}</p>
+
+  @if (webSnap.location){
+    <p>{{ webSnap.location }}</p>
+  }@else if (webSnap.location === "Paris"){
+    <p class="is-paris">{{ webSnap.location }}</p>
+  }@else{
+    <p>Pas de localisation</p>
+  }
 
   <button 
     [class]="webSnap.likeBtnClass"
