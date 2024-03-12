@@ -1,17 +1,17 @@
 <div class="web-snap-card">
   <h2>
-    {{title}}
-    <span>Mis en ligne le : {{createdDate}}</span>
+    {{ webSnap.title }}
+    <span>Mis en ligne le : {{ webSnap.createdDate }}</span>
   </h2>
 
-  <img [src]="imageUrl" [alt]="title" />
+  <img [src]="webSnap.imageUrl" [alt]="webSnap.title" />
 
-  <p>{{description}}</p>
+  <p>{{ webSnap.description }}</p>
 
   <button 
-    class="like-cta"
-    (click)="onAddLike()"
+    [class]="webSnap.likeBtnClass"
+    (click)="onLike(webSnap)"
   >
-    👍 {{likes}}
+    👍 {{ webSnap.likes }}
   </button>
 </div>
