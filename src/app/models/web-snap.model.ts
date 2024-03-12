@@ -1,6 +1,4 @@
 export class WebSnap{
-  public likeBtnClass: string;
-  public isLiked: boolean;
 
   constructor(
     public title:string,
@@ -8,9 +6,9 @@ export class WebSnap{
     public createdDate: Date,
     public likes: number = 0,
     public imageUrl: string,
+    public likeBtnClass:string,
+    public isLiked: boolean,
     public location?:string
   ){
-    this.likeBtnClass = "like-cta";
-    this.isLiked = false;
   }
 }

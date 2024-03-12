@@ -1,6 +1,6 @@
+<app-header></app-header>
 <main class="main-content">
-  @for (webSnapElement of webSnaps; track idx; let idx = $index){
-    <app-web-snap [webSnap]="webSnapElement"></app-web-snap>
-  }
+  <app-web-snap-list></app-web-snap-list>
 </main>
+<app-footer></app-footer>
 <router-outlet></router-outlet>

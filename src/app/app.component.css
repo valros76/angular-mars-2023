@@ -1,4 +1,4 @@
-.main-content{
+app-web-snap-list{
   display:grid;
   grid-template-columns:repeat(2, 1fr);
   grid-auto-rows:minmax(80px, 1fr);
