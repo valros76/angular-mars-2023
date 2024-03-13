@@ -1,1 +1,5 @@
-<p>{{ interval$ | async }}</p>
+<div *ngIf="testDatas$ | async as testData">
+  {{debug(testData)}}
+  <p>{{testData.status}}</p>
+  <p>{{testData.message}}</p>
+</div>

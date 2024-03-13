@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonModule} from "@angular/common";
 
-import {Observable, interval, pipe, map, filter} from "rxjs";
+import { TestApiService } from '../services/test-api';
+
+import {Observable, take, map} from "rxjs";
 
 @Component({
   selector: 'app-test',
@@ -14,16 +16,20 @@ import {Observable, interval, pipe, map, filter} from "rxjs";
 })
 export class TestComponent implements OnInit{
 
-  interval$!:Observable<string>;
-
   testAPI = fetch("https://php-emailing.dev/api/jwt/request");
+  testDatas$!:Observable<any>;
+
+  constructor(
+    protected testApiService:TestApiService
+  ){}
 
 
 
   ngOnInit(){
-    this.interval$ = interval(1000).pipe(
-      filter(value => value % 3 === 0),
-      map(value => value % 2 === 0 ? "Paire" : "Impaire"),
-    );
+    this.testDatas$ = this.testApiService.test();
+  }
+
+  debug(datas:any){
+    console.log(datas);
   }
 }

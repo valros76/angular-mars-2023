@@ -1,5 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -9,7 +10,7 @@ export class TestApiService{
 
   constructor(private http:HttpClient){}
 
-  test(){
-    this.http.get(this.request);
+  test(): Observable<any>{
+    return this.http.get<any>(this.request);
   }
 }
