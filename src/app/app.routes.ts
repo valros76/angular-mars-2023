@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
 
-import {WebSnapListComponent} from "./web-snap-list/web-snap-list.component";
-import {TestComponent} from "./test/test.component";
+import { HomeComponent } from './home/home.component';
+import { WebSnapListComponent } from './web-snap-list/web-snap-list.component';
 
 export const routes: Routes = [
   {
-    path:"",
-    component:WebSnapListComponent
+    path: "",
+    component: HomeComponent
   },
   {
-    path:"test",
-    component: TestComponent
+    path: "websnaps",
+    component: WebSnapListComponent
   }
 ];

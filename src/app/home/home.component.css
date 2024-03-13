@@ -1,0 +1,21 @@
+.cta-links {
+  width:max-content;
+  display:block;
+  text-decoration: unset;
+  color: #97900f;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: .025rem;
+  font-family: "Ubuntu", system-ui, sans-serif;
+  margin-inline:auto;
+  margin-block:2rem;
+  padding:.25rem .5rem;
+}
+
+.cta-links:hover{
+  color:#5e5d4a;
+}
+
+.cta-links.active{
+  text-decoration:underline;
+}
