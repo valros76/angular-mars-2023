@@ -16,3 +16,15 @@ body{
   margin:0;
   padding:0;
 }
+
+a,
+a:visited{
+  text-decoration:underline;
+  cursor:pointer;
+  color:#7c6791;
+}
+
+a:hover,
+a:active{
+  color:#635374;
+}

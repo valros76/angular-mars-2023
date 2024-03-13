@@ -1,8 +1,9 @@
+<a routerLink="/websnaps">Retour à la liste des WebSnaps</a>
 <div class="web-snap-card"
   [ngClass]="{'web-snap-card-liked': webSnap.isLiked}"
 >
   <h2 class="web-snap-title">
-    <a (click)="onViewWebSnap()">{{ webSnap.title | uppercase }}</a>
+    {{ webSnap.title | uppercase }}
   </h2>
 
   <p><span class="created-date">Mis en ligne le : {{ webSnap.createdDate | date:"dd-MM-YYYY à HH:mm:ss" }}</span></p>

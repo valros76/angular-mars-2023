@@ -2,3 +2,44 @@ h1{
   text-align:center;
   margin-block:0 1rem;
 }
+
+.main-nav{
+  padding:.5rem;
+}
+
+.menu-icon{
+  display:block;
+  width:64px;
+  height:64px;
+  font-size:48px;
+  line-height:64px;
+  font-style:normal;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.menu-icon:hover{
+  outline:4px solid #d889b1d3;
+}
+
+.menu-icon::selection{
+  background-color:inherit;
+  color:inherit;
+}
+
+.main-menu{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:.75rem;
+  list-style:none;
+  padding:0;
+}
+
+.main-menu-links::selection{
+  text-decoration:none;
+  font-size:1.25rem;
+  background-color:inherit;
+  color:inherit;
+}
