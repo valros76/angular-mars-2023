@@ -21,7 +21,7 @@
 
   <button 
     [class]="webSnap.likeBtnClass"
-    (click)="onLike(webSnap)"
+    (click)="webSnapsService.handleLikeById(webSnap.id, webSnap.isLiked ? 'unlike' : 'like')"
   >
     👍 {{ webSnap.likes }}
   </button>

@@ -1,0 +1,8 @@
+.web-snap-list-sections{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  grid-auto-rows:minmax(80px, 1fr);
+  grid-auto-flow:row dense;
+  gap:1rem;
+  justify-items:center;
+}

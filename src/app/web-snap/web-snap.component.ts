@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import {WebSnap} from "../models/web-snap.model";
 
+import {WebSnapsService} from "../services/web-snaps.service";
+
 @Component({
   selector: 'app-web-snap',
   standalone: true,
@@ -15,23 +17,8 @@ import {WebSnap} from "../models/web-snap.model";
 export class WebSnapComponent implements OnInit {
   @Input() webSnap!:WebSnap;
 
+  constructor(protected webSnapsService:WebSnapsService){}
+
   ngOnInit(): void {
-    
-  }
-
-  onLike(actualWebSnap: WebSnap): void {
-    switch (actualWebSnap.isLiked) {
-      case true:
-        actualWebSnap.likes--;
-        actualWebSnap.likeBtnClass = "like-cta";
-        break;
-      case false:
-      default:
-        actualWebSnap.likes++;
-        actualWebSnap.likeBtnClass = "like-cta-active";
-      break;
-    }
-
-    actualWebSnap.isLiked = !actualWebSnap.isLiked;
   }
 }
