@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {interval, tap, Subject} from "rxjs";
+import {interval, tap, Subject, takeUntil, Subscription} from "rxjs";
 
 import {ObservablesPreviewComponent} from "../observables-preview/observables-preview.component";
 
@@ -15,16 +15,22 @@ import {ObservablesPreview} from "../models/observables-preview.model";
   styleUrl: './observables-exemples.component.css'
 })
 export class ObservablesExemplesComponent implements OnInit, OnDestroy{
+
+  testInterval!:Subscription;
+
   observableMergeMap!:ObservablesPreview;
   observableExhaustMap!:ObservablesPreview;
   observableConcatMap!:ObservablesPreview;
   observableSwitchMap!:ObservablesPreview;
 
-  constructor(private destroy$:Subject<boolean>){}
+  constructor(
+    // private destroy$:Subject<boolean>
+    ){}
 
   ngOnInit(): void{
-    interval(1000).pipe(
-      tap(value => console.log(value))
+    this.testInterval = interval(1000).pipe(
+      // takeUntil(this.destroy$),
+      tap(value => console.log(value)),
     ).subscribe();
 
     this.observableMergeMap = new ObservablesPreview(
@@ -66,7 +72,8 @@ export class ObservablesExemplesComponent implements OnInit, OnDestroy{
   }
 
   ngOnDestroy(){
-
+    // this.destroy$.next(true);
+    this.testInterval.unsubscribe();
   }
 
 }
