@@ -69,7 +69,7 @@ export class ObservablesPreview {
      * Gestionnaire d'appel à un type d'observable en particulier
      */
     this.instructionObservable = interval(500).pipe(
-      take(7),
+      take(12),
       map(value => value % 2 ? "A" : "B"),
       tap(
         nameObject =>

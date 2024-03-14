@@ -40,6 +40,33 @@ export class AppComponent implements OnInit {
       /* fluxIntructionType: */ "🥇/🥈",
       /* observableType: */ "mergeMapObservable"
     );
+    this.observableExhaustMap = new ObservablesPreview(
+      /* observableTitle: */ "Exemple exhaustMap",
+      /* objectAText: */ "🍔",
+      /* objectBText: */ "✖️",
+      /* btnFluxAText: */ "Launch 🍔",
+      /* btnFluxBText: */ "Launch ✖️",
+      /* fluxIntructionType: */ "🍔/✖️",
+      /* observableType: */ "exhaustMapObservable"
+    );
+    this.observableConcatMap = new ObservablesPreview(
+      /* observableTitle: */ "Exemple concatMap",
+      /* objectAText: */ "🚧",
+      /* objectBText: */ "🪙",
+      /* btnFluxAText: */ "Launch 🚧",
+      /* btnFluxBText: */ "Launch 🪙",
+      /* fluxIntructionType: */ "🚧/🪙",
+      /* observableType: */ "concatMapObservable"
+    );
+    this.observableSwitchMap = new ObservablesPreview(
+      /* observableTitle: */ "Exemple switchMap",
+      /* objectAText: */ "🧔🏻",
+      /* objectBText: */ "🦄",
+      /* btnFluxAText: */ "Launch 🧔🏻",
+      /* btnFluxBText: */ "Launch 🦄",
+      /* fluxIntructionType: */ "🧔🏻/🦄",
+      /* observableType: */ "switchMapObservable"
+    );
   }
 
   debug(): void {
