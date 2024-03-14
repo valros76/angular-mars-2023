@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {interval, tap, Subject} from "rxjs";
 
 import {ObservablesPreviewComponent} from "../observables-preview/observables-preview.component";
 
@@ -13,13 +14,19 @@ import {ObservablesPreview} from "../models/observables-preview.model";
   templateUrl: './observables-exemples.component.html',
   styleUrl: './observables-exemples.component.css'
 })
-export class ObservablesExemplesComponent implements OnInit{
+export class ObservablesExemplesComponent implements OnInit, OnDestroy{
   observableMergeMap!:ObservablesPreview;
   observableExhaustMap!:ObservablesPreview;
   observableConcatMap!:ObservablesPreview;
   observableSwitchMap!:ObservablesPreview;
 
+  constructor(private destroy$:Subject<boolean>){}
+
   ngOnInit(): void{
+    interval(1000).pipe(
+      tap(value => console.log(value))
+    ).subscribe();
+
     this.observableMergeMap = new ObservablesPreview(
       /* observableTitle: */ "Exemple mergeMap",
       /* objectAText: */ "🥇",
@@ -56,6 +63,10 @@ export class ObservablesExemplesComponent implements OnInit{
       /* fluxIntructionType: */ "🧔🏻/🦄",
       /* observableType: */ "switchMapObservable"
     );
+  }
+
+  ngOnDestroy(){
+
   }
 
 }
