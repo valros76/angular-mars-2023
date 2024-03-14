@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {CommonModule} from "@angular/common";
 
-import { ObservablesPreview } from '../models/overvables-preview.model';
+import { ObservablesPreview } from '../models/observables-preview.model';
 
 @Component({
   selector: 'app-observables-preview',
