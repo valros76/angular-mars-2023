@@ -3,18 +3,24 @@
     {{observablesPreview.observableTitle}}
   </h2>
   <div class="observables-flux-grid">
-    <div class="observables-objects observables-objectA">
+    <div class="observables-objects observables-objectA" [ngStyle]="observablesPreview.objectAStyle">
       {{observablesPreview.objectAText}}
     </div>
-    <div class="observables-objects observables-objectB">
+    <div class="observables-objects observables-objectB" [ngStyle]="observablesPreview.objectBStyle">
       {{observablesPreview.objectBText}}
     </div>
   </div>
   <div class="observables-preview-container-controls">
-    <button class="flux-btns fluxA">
+    <button class="flux-btns fluxA" [ngClass]="{
+        active: observablesPreview.btnFluxAState,
+        inactive: !observablesPreview.btnFluxAState
+        }">
       {{observablesPreview.btnFluxAText}}
     </button>
-    <button class="flux-btns fluxB">
+    <button class="flux-btns fluxB" [ngClass]="{
+      active: observablesPreview.btnFluxBState,
+      inactive: !observablesPreview.btnFluxBState
+      }">
       {{observablesPreview.btnFluxBText}}
     </button>
     <div class="flux-instructions">

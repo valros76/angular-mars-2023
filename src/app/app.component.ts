@@ -7,7 +7,7 @@ import { HeaderComponent } from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {ObservablesPreviewComponent} from "./observables-preview/observables-preview.component";
 
-import {ObservablesPreview} from "./models/overvables-preview";
+import {ObservablesPreview} from "./models/overvables-preview.model";
 
 @Component({
   selector: 'app-root',

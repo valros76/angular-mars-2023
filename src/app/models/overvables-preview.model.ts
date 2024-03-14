@@ -5,6 +5,8 @@ export class ObservablesPreview {
   instructionObservable!: Observable<number | string> | Subscription;
   objectACounter: number = 0;
   objectBCounter: number = 0;
+  objectAStyle: any = { gridColumn: "1" };
+  objectBStyle: any = { gridColumn: "1" };
   btnFluxAState: boolean = false;
   btnFluxBState: boolean = false;
 
@@ -32,6 +34,16 @@ export class ObservablesPreview {
     isAObject ? this.objectACounter++ : this.objectBCounter++;
     const objectIndex: number = isAObject ? this.objectACounter : this.objectBCounter;
     console.log(`L'objet %c${nameObject} ${objectIndex} est appelé.`, `text-decoration:underline; color: ${this.translateNameObjectInColor(nameObject)}`);
+
+    isAObject ? this.objectAStyle.gridColumn = `${objectIndex + 1}` : this.objectBStyle.gridColumn = `${objectIndex + 1}`;
+
+    if (isAObject) {
+      this.btnFluxAState = true;
+      this.btnFluxBState = false;
+    } else {
+      this.btnFluxAState = false;
+      this.btnFluxBState = true;
+    }
 
     return of({ nameObject, objectIndex }).pipe(
       delay(isAObject ? 2000 : 3000)

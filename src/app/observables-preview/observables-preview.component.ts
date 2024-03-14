@@ -1,11 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {CommonModule} from "@angular/common";
 
-import { ObservablesPreview } from '../models/overvables-preview';
+import { ObservablesPreview } from '../models/overvables-preview.model';
 
 @Component({
   selector: 'app-observables-preview',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './observables-preview.component.html',
   styleUrl: './observables-preview.component.css'
 })
