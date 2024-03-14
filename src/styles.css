@@ -8,6 +8,11 @@
   font-family:"Raleway", system-ui, sans-serif;
 }
 
+::selection{
+  background-color:#111;
+  color:#fff;
+}
+
 h1,h2,h3,h4,h5,h6{
   font-family:"Ubuntu", sans-serif;
 }
@@ -15,6 +20,7 @@ h1,h2,h3,h4,h5,h6{
 body{
   margin:0;
   padding:0;
+  word-wrap:break-word;
 }
 
 a,
@@ -27,4 +33,8 @@ a:visited{
 a:hover,
 a:active{
   color:#635374;
+}
+
+p{
+  padding-inline:.25rem;
 }

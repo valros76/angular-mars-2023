@@ -1,4 +1,6 @@
-<div *ngIf="testDatas$ | async as testData">
+@if(testDatas$ | async; as testData){
+<div>
   {{debug(testData)}}
   <p>{{testData.datas}}</p>
 </div>
+}
