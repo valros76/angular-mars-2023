@@ -1,1 +1,26 @@
-<p>observables-preview works!</p>
+<div class="observables-preview-container">
+  <h2 class="observables-preview-container-title">
+    {{observablesPreview.observableTitle}}
+  </h2>
+  <div class="observables-flux-grid">
+    <div class="observables-objects observables-objectA">
+      {{observablesPreview.objectAText}}
+    </div>
+    <div class="observables-objects observables-objectB">
+      {{observablesPreview.objectBText}}
+    </div>
+  </div>
+  <div class="observables-preview-container-controls">
+    <button class="flux-btns fluxA">
+      {{observablesPreview.btnFluxAText}}
+    </button>
+    <button class="flux-btns fluxB">
+      {{observablesPreview.btnFluxBText}}
+    </button>
+    <div class="flux-instructions">
+      <p class="flux-instructions-text" id="fluxInstructionsText">
+        {{observablesPreview.fluxInstructionType}}
+      </p>
+    </div>
+  </div>
+</div>
