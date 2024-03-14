@@ -15,8 +15,6 @@ import {Observable, take, map} from "rxjs";
   styleUrl: './test.component.css'
 })
 export class TestComponent implements OnInit{
-
-  testAPI = fetch("https://php-emailing.dev/api/jwt/request");
   testDatas$!:Observable<any>;
 
   constructor(

@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
   providedIn: "root"
 })
 export class TestApiService{
-  request = "http://192.168.1.44:5500/";
+  request = "http://192.168.1.44:5500/api/jwt/request";
 
   constructor(private http:HttpClient){}
 
