@@ -16,7 +16,7 @@ import {ObservablesPreview} from "../models/observables-preview.model";
 })
 export class ObservablesExemplesComponent implements OnInit, OnDestroy{
 
-  testIntervalObservable!:Observable<any>;
+  testIntervalObservable$!:Observable<any>;
   testIntervalSubscription!:Subscription;
   notifier = new Subject();
 
@@ -28,11 +28,11 @@ export class ObservablesExemplesComponent implements OnInit, OnDestroy{
   constructor(){}
 
   ngOnInit(): void{
-    this.testIntervalObservable = interval(1000).pipe(
+    this.testIntervalObservable$ = interval(1000).pipe(
       takeUntil(this.notifier),
       tap(value => console.log(`Interval Observable : ${value}`)),
     );
-    this.testIntervalObservable.subscribe();
+    this.testIntervalObservable$.subscribe();
 
     
     this.testIntervalSubscription = interval(1000).pipe(
