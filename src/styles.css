@@ -35,6 +35,44 @@ a:active{
   color:#635374;
 }
 
+button {
+  display: block;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  background-color: #fff;
+  color: #97900f;
+  border: unset;
+  outline: 1px solid #97900f;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  margin-inline: auto;
+  transition: outline 0.075s ease-out, background-color 0.075s ease-out,
+    color 0.075s ease-out;
+}
+button:hover {
+  outline: 3px solid #97900f;
+}
+button:active {
+  background-color: #97900f;
+  color: #efe861;
+  outline: unset;
+}
+
+button.active {
+  background-color: #97900f;
+  color: #efe861;
+  outline: unset;
+}
+
+button.inactive {
+  background-color: #403f32;
+  color: #efe861;
+  outline: unset;
+}
+
 p{
   padding-inline:.25rem;
 }

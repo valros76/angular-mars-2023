@@ -7,3 +7,18 @@
 <a routerLink="/exemples-observables" routerLinkActive="active" class="cta-links">
   Test des observables
 </a>
+
+<section>
+
+  <form (ngSubmit)="onSubmitForm()">
+    <label for="emailInput">
+      Inscrivez-vous à la newsletter
+    </label>
+    <input type="email" placeholder="votre@email.fr" name="emailInput" id="emailInput" [(ngModel)]="userEmail"/>
+
+    <button type="submit">
+      Souscrire
+    </button>
+  </form>
+
+</section>

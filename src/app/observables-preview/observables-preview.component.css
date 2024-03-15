@@ -68,7 +68,22 @@
 
 .flux-btns{
   font-size:1.1rem;
+  border:unset;
+  border-radius:8px;
+  padding:.5rem;
 }
+
+button.active {
+  background-color: #97900f;
+  color: #efe861;
+  outline: unset;
+}
+button.inactive {
+  background-color: #403f32;
+  color: #efe861;
+  outline: unset;
+}
+
 .flux-instructions{
   width:100%;
 }
