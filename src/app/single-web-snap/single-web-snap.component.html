@@ -1,4 +1,5 @@
 <a routerLink="/websnaps">Retour à la liste des WebSnaps</a>
+@if (webSnap$ | async; as webSnap) {
 <div class="web-snap-card"
   [ngClass]="{'web-snap-card-liked': webSnap.isLiked}"
 >
@@ -27,3 +28,4 @@
     👍 {{ webSnap.likes }}
   </button>
 </div>
+}

@@ -1,5 +1,5 @@
 <section class="web-snap-list-sections">
-  @for (webSnapElement of webSnaps; track idx; let idx = $index){
+  @for (webSnapElement of webSnaps$ | async; track idx; let idx = $index){
     <app-web-snap [webSnap]="webSnapElement"></app-web-snap>
   }
 </section>

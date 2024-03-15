@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Observable, map } from "rxjs";
 import { CommonModule } from "@angular/common";
+import {Router} from "@angular/router";
 
 import { WebSnap } from '../models/web-snap.model';
+
+import { WebSnapsService } from '../services/web-snaps.service';
 
 import { WebSnapComponent } from '../web-snap/web-snap.component';
 
@@ -22,10 +25,14 @@ export class NewWebSnapComponent implements OnInit {
   webSnapForm!: FormGroup;
   webSnapPreview$!: Observable<WebSnap>;
 
+  submitError:boolean = false;
+
   urlRegex!: RegExp;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private webSnapsService: WebSnapsService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -69,8 +76,16 @@ export class NewWebSnapComponent implements OnInit {
 
   onSubmitForm() {
     if (this.webSnapForm.invalid) {
+      this.submitError = true;
       return;
     }
-    console.log(this.webSnapForm.value);
+    this.submitError = false;
+    this.webSnapsService.addWebSnap(this.webSnapForm.value);
+    /**
+     * La commande ci-dessous permet de faire un clean des champs du formulaire, après la soumission des données.
+     */
+    this.webSnapForm.reset();
+
+    this.router.navigateByUrl("/websnaps");
   }
 }

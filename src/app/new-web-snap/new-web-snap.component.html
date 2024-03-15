@@ -11,7 +11,7 @@
     <label for="imageUrl">URL de l'image</label>
     <input type="text" formControlName="imageUrl" id="imageUrl" />
 
-    <label for="location">Localisation de création du WebSnap</label>
+    <label for="location">Localisation de création du WebSnap (Optionnel)</label>
     <input type="text" formControlName="location" id="location" />
 
     <!-- Première méthode pour afficher l'aperçu -->
@@ -29,7 +29,16 @@
 
     <!-- Deuxième méthode méthode pour afficher l'aperçu (À prioriser) -->
     @if(webSnapPreview$ | async; as webSnap){
-      <app-web-snap [webSnap]="webSnap"></app-web-snap>
+    <app-web-snap [webSnap]="webSnap"></app-web-snap>
+    }
+
+    @if (submitError){
+    <p [ngStyle]="{
+        color:'red',
+        fontSize: '1.5rem'
+      }">
+      Des données n'ont pas été fournies !
+    </p>
     }
 
     <button type="submit" (click)="onSubmitForm()">

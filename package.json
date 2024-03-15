@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "startAll": "launch-application-and-server.bat",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

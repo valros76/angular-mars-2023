@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import {CommonModule} from "@angular/common";
 
 import { WebSnapComponent } from "../web-snap/web-snap.component";
 
@@ -10,6 +12,7 @@ import {WebSnapsService} from "../services/web-snaps.service";
   selector: 'app-web-snap-list',
   standalone: true,
   imports: [
+    CommonModule,
     WebSnapComponent
   ],
   templateUrl: './web-snap-list.component.html',
@@ -17,11 +20,11 @@ import {WebSnapsService} from "../services/web-snaps.service";
 })
 export class WebSnapListComponent implements OnInit {
 
-  webSnaps!:WebSnap[];
+  webSnaps$!:Observable<WebSnap[]>;
 
   constructor(private webSnapsService:WebSnapsService){}
 
   ngOnInit() {
-    this.webSnaps = this.webSnapsService.getAllWebSnaps();
+    this.webSnaps$ = this.webSnapsService.getAllWebSnaps();
   }
 }

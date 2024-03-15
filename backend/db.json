@@ -1,0 +1,47 @@
+{
+  "websnaps": [
+    {
+      "id": 1,
+      "title": "Webdevoo",
+      "description": "Concepteur de sites internet et boutiques en ligne.",
+      "imageUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80",
+      "createdDate": "Thu Aug 17 2023 00:33:25 GMT+0200 (heure d'été d'Europe centrale)",
+      "likes": 3,
+      "location": "Cahon",
+      "isLiked": false,
+      "likeBtnClass": "like-cta"
+    },
+    {
+      "id": 2,
+      "title": "Aux Essences Elfiques",
+      "description": "Artisanat et vente de produits à base de cire parfumée.",
+      "imageUrl": "https://images.unsplash.com/photo-1599313804818-2eaba0b14cba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "createdDate": "Thu Aug 17 2023 00:33:25 GMT+0200 (heure d'été d'Europe centrale)",
+      "likes": 1,
+      "location": "Cahon",
+      "isLiked": true,
+      "likeBtnClass": "like-cta-active"
+    },
+    {
+      "id": 3,
+      "title": "Jadenya",
+      "description": "Articles de mode & Décoration.",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1663040569013-dd2784f2b6f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80",
+      "createdDate": "Thu Aug 17 2023 00:33:25 GMT+0200 (heure d'été d'Europe centrale)",
+      "likes": 13,
+      "isLiked": true,
+      "likeBtnClass": "like-cta-active"
+    },
+    {
+      "id": 4,
+      "title": "PORTE-MANTEAUX ENFANT OISEAU ET MAISON ROSE ET BLEU 3 ACCROCHES",
+      "description": "Porte-manteaux en bois, composé de 3 accroches en métal pour la chambre d'enfant.",
+      "imageUrl": "https://jadenya.fr/69-medium_default/porte-manteaux-enfant-oiseau-et-maison-rose-et-bleu-3-accroches.jpg",
+      "createdDate": "new Date()",
+      "likes": 1,
+      "location": "Boutique Jadenya",
+      "isLiked": true,
+      "likeBtnClass": "like-cta-active"
+    }
+  ]
+}

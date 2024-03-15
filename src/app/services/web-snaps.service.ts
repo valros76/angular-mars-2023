@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import {Observable, map, switchMap} from "rxjs";
 
 import { WebSnap } from "../models/web-snap.model";
 
@@ -40,8 +42,28 @@ export class WebSnapsService {
     }
   ];
 
-  getAllWebSnaps(): WebSnap[] {
-    return this.webSnaps;
+  constructor(private http:HttpClient){}
+
+  addWebSnap(formValue: {
+    title: string,
+    description: string,
+    imageUrl: string,
+    location?: string
+  }){
+    const webSnap:WebSnap = {
+      ...formValue,
+      id: (this.webSnaps[this.webSnaps.length - 1].id + 1),
+      createdDate: new Date(),
+      likes: 0,
+      likeBtnClass: "like-cta",
+      isLiked: false
+    };
+
+    this.webSnaps.push(webSnap);
+  }
+
+  getAllWebSnaps(): Observable<WebSnap[]> {
+    return this.http.get<WebSnap[]>("http://localhost:3000/websnaps");
   }
 
   onLike(actualWebSnap: WebSnap): void {
@@ -60,18 +82,25 @@ export class WebSnapsService {
     actualWebSnap.isLiked = !actualWebSnap.isLiked;
   }
 
-  getWebSnapById(webSnapId: number): WebSnap {
-    const webSnap = this.webSnaps.find(webSnap => webSnap.id === webSnapId);
-    if (!webSnap) {
-      throw new Error("Ce WebSnap n'existe pas !");
-    }
-    return webSnap;
+  getWebSnapById(webSnapId: number): Observable<WebSnap> {
+    return this.http.get<WebSnap>(`http://localhost:3000/websnaps/${webSnapId}`);
   }
 
-  handleLikeById(webSnapId: number, likeType: "like"|"unlike"): void{
-    const webSnap = this.getWebSnapById(webSnapId);
-    likeType === "like" ? webSnap.likes++ : webSnap.likes--;
-    webSnap.likeBtnClass = likeType === "like" ? "like-cta-active" : "like-cta";
-    webSnap.isLiked = !webSnap.isLiked;
+  handleLikeById(webSnapId: number, likeType: "like"|"unlike"): Observable<WebSnap>{
+    const webSnap$ = this.getWebSnapById(webSnapId);
+    return webSnap$.pipe(
+      map(
+        actualWebSnap => ({
+          ...actualWebSnap,
+          likes: actualWebSnap.likes + (likeType === "like" ? 1 : -1),
+          isLiked: (likeType === "like" ? true : false),
+          likeBtnClass: (likeType === "like" ? "like-cta-active" : "like-cta")
+        })
+      ),
+      switchMap(
+        updatedWebSnap => 
+        this.http.put<WebSnap>(`http://localhost:3000/websnaps/${webSnapId}`, updatedWebSnap)
+        )
+    );
   }
 }
