@@ -1,0 +1,41 @@
+<section class="form-card">
+  <h2>Ajouter un nouveau WebSnap</h2>
+
+  <form [formGroup]="webSnapForm">
+    <label for="title">Titre du WebSnap</label>
+    <input type="text" formControlName="title" id="title" />
+
+    <label for="description">Description du WebSnap</label>
+    <textarea formControlName="description" rows="4" id="description"></textarea>
+
+    <label for="imageUrl">URL de l'image</label>
+    <input type="text" formControlName="imageUrl" id="imageUrl" />
+
+    <label for="location">Localisation de création du WebSnap</label>
+    <input type="text" formControlName="location" id="location" />
+
+    <!-- Première méthode pour afficher l'aperçu -->
+    @if(webSnapPreview$ | async; as webSnap){
+    <div class="web-snap-card">
+      <h2>{{webSnap.title}}</h2>
+      <p>{{webSnap.createdDate | date:"dd-mm-YYYY à HH:mm:ss"}}</p>
+      <img [src]="webSnap.imageUrl" [alt]="webSnap.title" />
+      <p>{{webSnap.description}}</p>
+      @if(webSnap.location){
+      <p>Créé à {{webSnap.location}}</p>
+      }
+    </div>
+    }
+
+    <!-- Deuxième méthode méthode pour afficher l'aperçu (À prioriser) -->
+    @if(webSnapPreview$ | async; as webSnap){
+      <app-web-snap [webSnap]="webSnap"></app-web-snap>
+    }
+
+    <button type="submit" (click)="onSubmitForm()">
+      Créer
+    </button>
+
+  </form>
+
+</section>

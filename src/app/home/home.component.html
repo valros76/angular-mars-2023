@@ -4,18 +4,21 @@
 <a routerLink="/websnaps" routerLinkActive="active" class="cta-links">
   Voir les websnaps
 </a>
+<a routerLink="/websnaps/create" routerLinkActive="active" class="cta-links">
+  Créer un nouveau websnap
+</a>
 <a routerLink="/exemples-observables" routerLinkActive="active" class="cta-links">
   Test des observables
 </a>
 
 <section>
 
-  <form (ngSubmit)="onSubmitForm()">
+  <form #newsletterForm="ngForm" (ngSubmit)="onSubmitForm(newsletterForm)">
     <label for="emailInput">
       Inscrivez-vous à la newsletter
     </label>
-    <input type="email" placeholder="votre@email.fr" name="emailInput" id="emailInput" [(ngModel)]="userEmail"/>
-
+    <!-- Sans le paramètre ngModel, on ne lie pas ngForm avec nos inputs -->
+    <input type="email" placeholder="votre@email.fr" name="emailInput" id="emailInput" ngModel/>
     <button type="submit">
       Souscrire
     </button>

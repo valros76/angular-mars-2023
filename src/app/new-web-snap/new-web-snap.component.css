@@ -1,0 +1,37 @@
+.form-card,
+.web-snap-card {
+    box-sizing: border-box;
+    width: 50dvw;
+    margin-block: 1rem;
+    margin-inline: auto;
+    padding: .5rem 1.5rem;
+    box-shadow: 0 .15rem .75rem 0 #dedede;
+}
+
+.web-snap-card img {
+    width: 100%;
+}
+
+.web-snap-card h2 {
+    margin-bottom: 0;
+}
+
+.web-snap-card p {
+    font-weight: 300;
+    font-size: 1.05rem;
+}
+
+.form-card h2 {
+    text-align: center;
+}
+
+.form-card button[type="submit"]:disabled {
+    color: #afafaf;
+    outline: 1px solid #afafaf;
+}
+
+.form-card button[type="submit"]:disabled:active {
+    color: #afafaf;
+    outline: 1px solid #afafaf;
+    background-color: #fff;
+}

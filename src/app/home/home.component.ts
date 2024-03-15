@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -15,11 +15,15 @@ import {FormsModule} from "@angular/forms";
 })
 export class HomeComponent {
 
-  userEmail:string = "test@mail.fr";
+  // userEmail:string = "test@mail.fr";
 
   constructor(private router:Router){}
 
-  onSubmitForm(){
-    console.log(this.userEmail);
+  onSubmitForm(form: NgForm){
+    console.log(form.value);
+    /**
+     * Aura le même effect que : 
+     * console.log(form.form.value);
+     */
   }
 }
